@@ -1,5 +1,39 @@
 {
-    "name": "ajiho/think-captcha",
-    "license": "MIT",
-    "require": {}
+  "name": "ajiho/think-captcha",
+  "description": "captcha package for thinkphp6",
+  "keywords": [
+    "thinkphp6 Captcha",
+    "thinkphp6 Security",
+    "thinkphp6 Captcha",
+    "thinkphp5 Security",
+    "Captcha"
+  ],
+  "homepage": "https://gitee.com/ajiho/think-captcha",
+  "type": "library",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "ajiho\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "ajiho",
+      "email": "lujiahao@88.com",
+      "homepage": "https://gitee.com/ajiho",
+      "role": "Developer"
+    }
+  ],
+  "minimum-stability": "stable",
+  "require": {
+    "topthink/framework": "^6.0.0",
+    "ext-gd": "*"
+  },
+  "extra": {
+    "think": {
+      "config": {
+        "captcha": "src/config.php"
+      }
+    }
+  }
 }
