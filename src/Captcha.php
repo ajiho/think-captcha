@@ -3,6 +3,10 @@
 namespace ajiho;
 
 
+
+
+use think\facade\Config;
+
 class Captcha
 {
     private $charset;//随机因子
@@ -20,11 +24,11 @@ class Captcha
     {
         //注意字体路径要写对，否则显示不了图片
         $this->font = __DIR__ . '/assets/Elephant.ttf';
-        $this->charset = config('captcha.charset');
-        $this->codelen = config('captcha.codelen');
-        $this->width = config('captcha.width');
-        $this->height = config('captcha.height');
-        $this->fontsize = config('captcha.fontsize');
+        $this->charset = Config::get('captcha.charset','abcdefghkmnprstuvwxyzABCDEFGHKMNPRSTUVWXYZ23456789');
+        $this->codelen = Config::get('captcha.codelen','4');
+        $this->width = Config::get('captcha.width','150');
+        $this->height = Config::get('captcha.height','50');
+        $this->fontsize = Config::get('captcha.fontsize','20');
         $this->createCode();
     }
 
@@ -86,9 +90,9 @@ class Captcha
     }
 
 
-    //获取验证码
+    //返回验证码
     public function getCode()
     {
-        return strtolower($this->code);
+        return $this->code;
     }
 }
