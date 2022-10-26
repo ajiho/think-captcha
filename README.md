@@ -71,10 +71,12 @@ return $captcha->outImg();
 //接受参数
 $captcha = input('captcha','');
 
-//判断表单传递过来的验证码和上面存到session中的验证码是否一致,注意大小写问题，如果你不想区分大小写，可以统一都转换为小写再对比
+//判断表单传递过来的验证码和上面存到session中的验证码是否一致
 if ($captcha !== session('captcha')) {
    //验证码不正确
 }
+//如果你不想区分大小写，可以统一都转换为小写再对比
+//if (strtolower($captcha) !== strtolower(session('captcha'))) {
 
 //验证通过
 //session('captcha', null); //验证通过后根据需要 是否要删除存在session的验证码
