@@ -12,9 +12,9 @@
 
 # 优点
 
-- 简单灵活、相对于tp官方的验证码没有过渡包装
+- 简单灵活、相对于thinkphp官方的验证码没有过渡包装
 - 只提供验证码的生成、没有限定验证码的存储方式,完全自己掌控
-- 先对于tp官方的验证码在前后端分离开发时不需要改源码进行适配
+- 相对于thinkphp官方的验证码在前后端分离开发时不需要改源码进行适配
 - 不用在项目中引入验证码所需的字体文件
 
 # 安装
@@ -30,7 +30,7 @@ composer require ajiho/think-captcha
 ```php
 <?php
 return [
-    //随机因子
+    //随机因子(已排除容易混淆的1和iI、0和oO)
     'charset' => 'abcdefghkmnprstuvwxyzABCDEFGHKMNPRSTUVWXYZ23456789',
     //验证码长度
     'codelen' => '4',
@@ -69,10 +69,10 @@ return $captcha->outImg();
 ```php
 
 //接受参数
-$params = input();
+$captcha = input('captcha','');
 
 //判断表单传递过来的验证码和上面存到session中的验证码是否一致,注意大小写问题，如果你不想区分大小写，可以统一都转换为小写再对比
-if ($params['captcha'] !== session('captcha')) {
+if ($captcha !== session('captcha')) {
    //验证码不正确
 }
 

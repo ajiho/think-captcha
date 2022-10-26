@@ -1,7 +1,7 @@
 <?php
 
 return [
-    //随机因子
+    //随机因子(已排除容易混淆的1和iI、0和oO)
     'charset' => 'abcdefghkmnprstuvwxyzABCDEFGHKMNPRSTUVWXYZ23456789',
     //验证码长度
     'codelen' => '4',
