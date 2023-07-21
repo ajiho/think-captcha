@@ -3,9 +3,8 @@
 namespace ajiho;
 
 
-
-
 use think\facade\Config;
+use think\Response;
 
 class Captcha
 {
@@ -24,11 +23,11 @@ class Captcha
     {
         //注意字体路径要写对，否则显示不了图片
         $this->font = __DIR__ . '/assets/Elephant.ttf';
-        $this->charset = Config::get('captcha.charset','abcdefghkmnprstuvwxyzABCDEFGHKMNPRSTUVWXYZ23456789');
-        $this->codelen = Config::get('captcha.codelen','4');
-        $this->width = Config::get('captcha.width','150');
-        $this->height = Config::get('captcha.height','50');
-        $this->fontsize = Config::get('captcha.fontsize','20');
+        $this->charset = Config::get('captcha.charset', 'abcdefghkmnprstuvwxyzABCDEFGHKMNPRSTUVWXYZ23456789');
+        $this->codelen = Config::get('captcha.codelen', '4');
+        $this->width = Config::get('captcha.width', '150');
+        $this->height = Config::get('captcha.height', '50');
+        $this->fontsize = Config::get('captcha.fontsize', '20');
         $this->createCode();
     }
 
@@ -52,12 +51,14 @@ class Captcha
     //生成文字
     private function createFont()
     {
-        $_x = $this->width / $this->codelen;
+        $_x = round($this->width / $this->codelen);
         for ($i = 0; $i < $this->codelen; ++$i) {
             $this->fontcolor = imagecolorallocate($this->img, mt_rand(0, 156), mt_rand(0, 156), mt_rand(0, 156));
-            imagettftext($this->img, $this->fontsize, mt_rand(-30, 30), $_x * $i + mt_rand(1, 5), $this->height / 1.4, $this->fontcolor, $this->font, $this->code[$i]);
+            $offset = round($this->height / 1.4);
+            imagettftext($this->img, $this->fontsize, mt_rand(-30, 30), $_x * $i + mt_rand(1, 5), $offset, $this->fontcolor, $this->font, $this->code[$i]);
         }
     }
+
 
     //生成线条、雪花
     private function createLine()
@@ -86,7 +87,11 @@ class Captcha
         imagepng($this->img);
         $content = ob_get_clean();
         imagedestroy($this->img);
-        return response($content, 200, ['Content-Length' => strlen($content)])->contentType('image/png');
+        $header = [
+            'Content-Length' => strlen($content),
+            'Content-Type' => 'image/png;charset=utf-8'
+        ];
+        return Response::create($content)->header($header);
     }
 
 
