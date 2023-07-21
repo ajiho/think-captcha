@@ -5,7 +5,6 @@
     "thinkphp6 Captcha",
     "thinkphp6 Security",
     "thinkphp6 Captcha",
-    "thinkphp5 Security",
     "Captcha"
   ],
   "homepage": "https://gitee.com/ajiho/think-captcha",
@@ -26,7 +25,7 @@
   ],
   "minimum-stability": "stable",
   "require": {
-    "topthink/framework": "^6.0.0",
+    "topthink/framework": "^6.0 || ^8.0",
     "ext-gd": "*"
   },
   "extra": {

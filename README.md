@@ -5,9 +5,11 @@
 
 # 效果图
 
-![效果图](https://img-blog.csdnimg.cn/6a52de7b48ac401c855ff6d5482bc3dc.png)
-![效果图](https://img-blog.csdnimg.cn/afadf851243149068aa5f11798976397.png)
-![效果图](https://img-blog.csdnimg.cn/041f9d0ed7c2456ca5342baa7f98c1e4.png)
+
+![效果图](https://gitee.com/ajiho/think-captcha/raw/master/img/1.png)
+![效果图](https://gitee.com/ajiho/think-captcha/raw/master/img/2.png)
+![效果图](https://gitee.com/ajiho/think-captcha/raw/master/img/3.png)
+
 
 
 # 优点
