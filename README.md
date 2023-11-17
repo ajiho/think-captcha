@@ -1,14 +1,14 @@
 # think-captcha
 
-基于thinkphp6的一个图形验证码拓展包
+基于thinkphp6.0.0+的一个图形验证码拓展包
 
 
 # 效果图
 
 
-![效果图](https://gitee.com/ajiho/think-captcha/raw/master/img/1.png)
-![效果图](https://gitee.com/ajiho/think-captcha/raw/master/img/2.png)
-![效果图](https://gitee.com/ajiho/think-captcha/raw/master/img/3.png)
+![](https://gitee.com/ajiho/think-captcha/raw/master/.gitee/img/1.png)
+![](https://gitee.com/ajiho/think-captcha/raw/master/.gitee/img/2.png)
+![](https://gitee.com/ajiho/think-captcha/raw/master/.gitee/img/3.png)
 
 
 
